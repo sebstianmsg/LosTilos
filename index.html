@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Los Tilos Parque Canino — Día de campo, fin de semana, hotelería y pensionado para tu perro en El Colorado, Canelones, Uruguay.">
+<title>Los Tilos Parque Canino</title>
+<style>
+/* ===== RESET & VARIABLES ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --vd:#3B6D11;--vm:#639922;--vc:#EAF3DE;--cr:#F5F0E8;
+  --bl:#ffffff;--gt:#666;--ne:#1a1a1a;
+  --sh:rgba(59,109,17,.15);--tr:all .3s ease;--rd:12px;
+  --fs:Georgia,serif;--fss:system-ui,-apple-system,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fss);color:var(--ne);background:var(--cr);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--fs);font-weight:normal;line-height:1.2}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--vd);margin-bottom:.4rem}
+a{color:inherit}
+
+/* ===== UTILS ===== */
+.container{max-width:1100px;margin:0 auto}
+section{padding:5rem 1.5rem}
+.section-header{text-align:center;margin-bottom:3rem}
+.section-tag{display:inline-block;font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--vm);margin-bottom:.6rem}
+.section-sub{color:var(--gt);font-size:.95rem;margin-top:.4rem}
+
+/* ===== FADE-IN ===== */
+.fi{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.fi.v{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ===== NAVBAR ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(245,240,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(59,109,17,.1);padding:.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;transition:var(--tr)}
+.nav.sc{box-shadow:0 2px 20px var(--sh)}
+.nav-logo{font-family:var(--fs);font-size:1.25rem;color:var(--vd);text-decoration:none}
+.nav-logo small{display:block;font-size:.7rem;color:var(--vm);font-family:var(--fss);letter-spacing:1.5px;text-transform:uppercase}
+.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--ne);font-size:.83rem;letter-spacing:.3px;transition:color .2s}
+.nav-links a:hover{color:var(--vd)}
+.btn-wa-nav{background:var(--vd)!important;color:var(--bl)!important;padding:.45rem 1.1rem;border-radius:50px;font-size:.78rem!important;transition:var(--tr)!important;white-space:nowrap}
+.btn-wa-nav:hover{background:var(--vm)!important}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hbg span{display:block;width:24px;height:2px;background:var(--vd);transition:var(--tr);transform-origin:center}
+.hbg.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.on span:nth-child(2){opacity:0}
+.hbg.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+  .nav-links{display:none;position:fixed;top:58px;left:0;right:0;background:var(--cr);flex-direction:column;padding:1.5rem;gap:1rem;border-bottom:1px solid var(--vc);box-shadow:0 4px 20px var(--sh)}
+  .nav-links.op{display:flex}
+  .nav-links a{font-size:.95rem}
+  .hbg{display:flex}
+}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(155deg,rgba(234,243,222,.62) 0%,rgba(245,240,232,.55) 100%),linear-gradient(rgba(0,18,0,.42),rgba(0,18,0,.38)),url('parque-hero.jpg') center/cover no-repeat;padding:7rem 1.5rem 5rem;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:-5%;right:-5%;height:100px;background:var(--bl);border-radius:60% 60% 0 0}
+.hero-logo{width:76px;height:76px;margin:0 auto 1.5rem}
+.hero h1{font-size:clamp(3rem,9vw,5.5rem);color:var(--vd);letter-spacing:-1px;margin-bottom:.4rem}
+.hero-sub{font-size:clamp(.8rem,2vw,.95rem);color:var(--vc);font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:2.5rem;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.btn-cta{display:inline-flex;align-items:center;gap:.55rem;background:var(--vd);color:var(--bl);padding:.9rem 2rem;border-radius:50px;text-decoration:none;font-size:.92rem;transition:var(--tr);box-shadow:0 4px 22px rgba(59,109,17,.3)}
+.btn-cta:hover{background:var(--vm);transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,109,17,.4)}
+.btn-cta svg{width:20px;height:20px;flex-shrink:0}
+.hero-scroll{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--vm);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;animation:bob 2.2s ease infinite;z-index:1}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* ===== QUIÉNES SOMOS ===== */
+#nosotros{background:var(--bl)}
+.nosotros-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+@media(max-width:768px){.nosotros-wrap{grid-template-columns:1fr;gap:2.5rem}}
+.nosotros-text .section-tag{display:block;text-align:left}
+.nosotros-text h2{text-align:left}
+.nosotros-text p{color:var(--gt);font-size:.93rem;line-height:1.8;margin-top:1rem}
+.nosotros-text p+p{margin-top:.85rem}
+.nosotros-video{display:flex;justify-content:center}
+.video-frame{width:100%;max-width:320px;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px var(--sh);background:#111;aspect-ratio:9/16;position:relative}
+.video-frame video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ===== ACTIVIDADES ===== */
+#actividades{background:var(--bl)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.card{background:var(--cr);border-radius:var(--rd);padding:2rem;border:1px solid rgba(59,109,17,.07);transition:var(--tr);position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--vd),var(--vm))}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--sh)}
+.card-ico{width:50px;height:50px;background:var(--vc);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem}
+.card-ico svg{width:24px;height:24px;color:var(--vd)}
+.card h3{font-size:1.2rem;color:var(--vd);margin-bottom:.4rem}
+.card-desc{font-size:.86rem;color:var(--gt)}
+.card-price{font-size:1.4rem;font-weight:700;color:var(--vm);margin:1rem 0 .7rem}
+.card-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.card-list li{font-size:.85rem;color:var(--gt);display:flex;align-items:flex-start;gap:.5rem}
+.card-list li::before{content:'—';color:var(--vm);flex-shrink:0}
+.card-note{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(59,109,17,.09);font-size:.78rem;color:var(--gt);font-style:italic}
+
+/* ===== GALERÍA ===== */
+#galeria{background:var(--cr)}
+.carousel{position:relative;overflow:hidden;border-radius:var(--rd)}
+.c-track{display:flex;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+.c-slide{min-width:100%;cursor:pointer}
+@media(min-width:768px){.c-slide{min-width:50%}}
+@media(min-width:1024px){.c-slide{min-width:33.333%}}
+.c-inner{aspect-ratio:4/3;background:#d5d5d5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;margin:0 .4rem;border-radius:8px;overflow:hidden;position:relative;transition:opacity .2s}
+.c-inner:hover{opacity:.9}
+.c-inner img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ph-icon{width:38px;height:38px;opacity:.35;color:#999}
+.ph-txt{font-size:.75rem;color:#aaa;letter-spacing:.5px;text-align:center}
+.c-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.92);border:none;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.15);z-index:10;transition:var(--tr)}
+.c-btn:hover{background:var(--bl);box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.c-btn svg{width:20px;height:20px;color:var(--vd)}
+.c-btn.prev{left:.75rem}.c-btn.next{right:.75rem}
+.c-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.2rem}
+.c-dot{width:8px;height:8px;border-radius:50%;background:#ccc;border:none;cursor:pointer;transition:var(--tr);padding:0}
+.c-dot.on{background:var(--vd);width:22px;border-radius:4px}
+
+/* ===== LIGHTBOX ===== */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center;padding:1rem}
+.lb.on{display:flex}
+.lb-wrap{position:relative;max-width:900px;width:100%}
+.lb-wrap img{width:100%;border-radius:8px}
+.lb-ph{aspect-ratio:4/3;background:#2a2a2a;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#666;font-size:.95rem}
+.lb-close{position:absolute;top:-48px;right:0;background:none;border:none;color:#fff;cursor:pointer;font-size:2.2rem;line-height:1;padding:.2rem;opacity:.8;transition:opacity .2s}
+.lb-close:hover{opacity:1}
+
+/* ===== EL PARQUE ===== */
+#parque{background:var(--vd);color:var(--bl)}
+#parque h2{color:var(--cr)}
+#parque .section-tag{color:var(--vc)}
+#parque .section-sub{color:rgba(255,255,255,.55)}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+.feat{display:flex;align-items:flex-start;gap:1rem}
+.feat-ico{width:46px;height:46px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feat-ico svg{width:22px;height:22px;color:var(--vc)}
+.feat h4{font-size:.92rem;font-weight:600;margin-bottom:.25rem;color:var(--bl)}
+.feat p{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.55}
+
+/* ===== ZONAS ===== */
+#zonas{background:var(--bl)}
+.chips{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.chip{background:var(--vc);color:var(--vd);padding:.45rem 1.2rem;border-radius:50px;font-size:.84rem;font-weight:500;transition:var(--tr);cursor:default}
+.chip:hover{background:var(--vd);color:var(--bl)}
+.zonas-nota{text-align:center;margin-top:1.8rem;font-size:.83rem;color:var(--gt)}
+.zonas-nota a{color:var(--vd);text-decoration:none;font-weight:500}
+.zonas-nota a:hover{text-decoration:underline}
+
+/* ===== FAQ ===== */
+#faq{background:var(--cr)}
+.faq-list{display:flex;flex-direction:column;gap:.7rem;max-width:760px;margin:0 auto}
+.faq-item{background:var(--bl);border-radius:10px;border:1px solid rgba(59,109,17,.08);overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:1.2rem 1.4rem;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.92rem;font-weight:600;color:var(--ne);transition:color .2s;font-family:var(--fss)}
+.faq-q:hover,.faq-q.on{color:var(--vd)}
+.faq-arr{width:18px;height:18px;flex-shrink:0;transition:transform .3s;color:var(--vm)}
+.faq-q.on .faq-arr{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-a.op{max-height:200px}
+.faq-a-in{padding:0 1.4rem 1.2rem;color:var(--gt);font-size:.86rem;line-height:1.7;border-top:1px solid rgba(59,109,17,.06)}
+
+/* ===== MAPA FOOTER ===== */
+.ft-map{margin-top:1rem;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.08);line-height:0}
+.ft-map iframe{width:100%;height:160px;border:0;filter:grayscale(40%) brightness(.85) contrast(1.1);display:block}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem}
+.ft-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem;margin-bottom:3rem}
+.ft-brand h3{font-size:1.4rem;color:var(--bl);margin-bottom:.5rem}
+.ft-brand p{font-size:.82rem;line-height:1.65}
+.ft-col h4{color:var(--bl);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.1rem}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.ft-links a,.ft-links span{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:.6rem;transition:color .2s}
+.ft-links a:hover{color:var(--vc)}
+.ft-links svg{width:17px;height:17px;flex-shrink:0}
+.ft-bottom{max-width:1100px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.76rem}
+.ft-bottom a{color:var(--vc);text-decoration:none}
+.ft-bottom a:hover{text-decoration:underline}
+
+/* ===== SCROLL TOP ===== */
+.go-top{position:fixed;bottom:2rem;right:1.5rem;width:42px;height:42px;background:var(--vd);color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(59,109,17,.35);opacity:0;transform:translateY(10px);transition:var(--tr);z-index:100}
+.go-top.v{opacity:1;transform:none}
+.go-top:hover{background:var(--vm)}
+.go-top svg{width:19px;height:19px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#inicio" class="nav-logo">Los Tilos <small>Parque Canino</small></a>
+  <button class="hbg" id="hbg" aria-label="Menú"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#actividades">Actividades</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#parque">El Parque</a></li>
+    <li><a href="#zonas">Zonas</a></li>
+    <li><a href="#faq">Preguntas</a></li>
+    <li><a href="https://wa.me/59899571818" target="_blank" rel="noopener" class="btn-wa-nav">WhatsApp</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-logo" aria-hidden="true">
+    <svg viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="38" cy="30" r="24" fill="#EAF3DE"/>
+      <circle cx="38" cy="26" r="19" fill="#639922" opacity=".45"/>
+      <circle cx="38" cy="21" r="14" fill="#639922" opacity=".75"/>
+      <circle cx="38" cy="17" r="10" fill="#3B6D11"/>
+      <rect x="35" y="32" width="6" height="20" rx="3" fill="#3B6D11"/>
+    </svg>
+  </div>
+  <h1 class="fi">Los Tilos</h1>
+  <p class="hero-sub fi d1">Parque Canino · El Colorado, Canelones</p>
+  <a href="https://wa.me/59899571818" target="_blank" rel="noopener" class="btn-cta fi d2">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Consultar por WhatsApp
+  </a>
+  <div class="hero-scroll" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    Explorar
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section id="nosotros">
+  <div class="container">
+    <div class="nosotros-wrap">
+      <div class="nosotros-text fi">
+        <span class="section-tag">Quiénes somos</span>
+        <h2>Un espacio hecho con amor por los perros</h2>
+        <p>Soy Pablo y esto es Los Tilos Parque Canino, ubicado en El Colorado, Canelones. Creamos este parque canino con la convicción de que los perros merecen un lugar donde ser perros de verdad: correr, explorar, chapotear y descansar en un entorno natural.</p>
+        <p>Cada detalle del parque — los puntos de agua, la sombra, los caniles con aire acondicionado, la piscina natural — fue pensado para el bienestar de tu compañero. Tratamos a cada perro como si fuera el nuestro.</p>
+      </div>
+      <div class="nosotros-video fi d2">
+        <div class="video-frame">
+          <video src="Img%20carrusel/Pablo.mp4" controls playsinline preload="metadata"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVIDADES -->
+<section id="actividades">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag fi">Servicios</span>
+      <h2 class="fi">Nuestras actividades</h2>
+      <p class="section-sub fi">Todos los servicios incluyen traslado ida y vuelta · Pago en efectivo al momento de la entrega</p>
+    </div>
+    <div class="cards">
+
+      <div class="card fi d1">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </div>
+        <h3>Día de campo</h3>
+        <p class="card-desc">Una jornada completa en el parque para que tu perro disfrute al máximo.</p>
+        <div class="card-price">$600 / jornada</div>
+        <ul class="card-list">
+          <li>Retiro temprano a la mañana</li>
+          <li>Devolución entre las 14:30 y 15:00 h</li>
+          <li>Traslado ida y vuelta incluido</li>
+        </ul>
+        <p class="card-note">Pago en efectivo al momento de la entrega</p>
+      </div>
+
+      <div class="card fi d2">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Fin de semana</h3>
+        <p class="card-desc">El plan ideal para que tu perro descanse y disfrute mientras vos también lo hacés.</p>
+        <div class="card-price">$1.800 total</div>
+        <ul class="card-list">
+          <li>Retiro: jueves tarde o viernes a la mañana</li>
+          <li>Devolución: domingo</li>
+          <li>Traslado ida y vuelta incluido</li>
+        </ul>
+        <p class="card-note">Pago en efectivo al momento de la entrega</p>
+      </div>
+
+      <div class="card fi d3">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Hotelería y pensionado</h3>
+        <p class="card-desc">Para estadías más largas, con toda la atención y comodidad que tu perro merece.</p>
+        <div class="card-price">Precio a consultar</div>
+        <ul class="card-list">
+          <li>Traslados todos los días excepto martes y miércoles</li>
+          <li>Caniles individuales con aire acondicionado</li>
+          <li>Traslado ida y vuelta incluido</li>
+        </ul>
+        <p class="card-note">Pago en efectivo al momento de la entrega</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag fi">Galería</span>
+      <h2 class="fi">El parque en fotos</h2>
+      <p class="section-sub fi">Conocé los espacios donde tu perro va a disfrutar.</p>
+    </div>
+
+    <div class="carousel fi">
+      <button class="c-btn prev" id="cPrev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="c-track" id="cTrack">
+
+        <!--
+        ╔══════════════════════════════════════════════════════════════╗
+        ║  CÓMO AGREGAR FOTOS REALES                                   ║
+        ║  Dentro de cada .c-inner, agregá:                            ║
+        ║    <img src="ruta/foto.jpg" alt="Descripción de la foto">    ║
+        ║  El placeholder (svg + párrafo) se puede borrar.             ║
+        ╚══════════════════════════════════════════════════════════════╝
+        -->
+
+        <div class="c-slide"><div class="c-inner" data-idx="0">
+          <img src="Img%20carrusel/Img1.png" alt="Los Tilos Parque Canino">
+        </div></div>
+
+        <div class="c-slide"><div class="c-inner" data-idx="1">
+          <img src="Img%20carrusel/Img2.png" alt="Los Tilos Parque Canino">
+        </div></div>
+
+        <div class="c-slide"><div class="c-inner" data-idx="2">
+          <img src="Img%20carrusel/Img3.png" alt="Los Tilos Parque Canino">
+        </div></div>
+
+        <div class="c-slide"><div class="c-inner" data-idx="3">
+          <img src="Img%20carrusel/Img4.png" alt="Los Tilos Parque Canino">
+        </div></div>
+
+        <div class="c-slide"><div class="c-inner" data-idx="4">
+          <img src="Img%20carrusel/Img5.png" alt="Los Tilos Parque Canino">
+        </div></div>
+
+        <div class="c-slide"><div class="c-inner" data-idx="5">
+          <img src="Img%20carrusel/Img6.png" alt="Los Tilos Parque Canino">
+        </div></div>
+
+      </div>
+      <button class="c-btn next" id="cNext" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="c-dots" id="cDots" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+  <div class="lb-wrap" id="lbWrap">
+    <button class="lb-close" id="lbClose" aria-label="Cerrar">&times;</button>
+    <div class="lb-ph">Foto próximamente</div>
+  </div>
+</div>
+
+<!-- EL PARQUE -->
+<section id="parque">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag fi">Instalaciones</span>
+      <h2 class="fi">El parque</h2>
+      <p class="section-sub fi">Diseñado para que tu perro tenga la mejor experiencia posible.</p>
+    </div>
+    <div class="feats">
+
+      <div class="feat fi">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+        </div>
+        <div>
+          <h4>Agua en todo el parque</h4>
+          <p>4 puntos de agua distribuidos a lo largo del parque para que tu perro se hidrate cuando lo necesite.</p>
+        </div>
+      </div>
+
+      <div class="feat fi d1">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22V12"/><path d="M5 12H2a10 10 0 0020 0h-3"/><path d="M8 6l4-4 4 4"/><path d="M2 12a10 10 0 0010-10"/><path d="M22 12a10 10 0 01-10-10"/></svg>
+        </div>
+        <div>
+          <h4>Mucha sombra natural</h4>
+          <p>Árboles que generan sombra abundante para que los perros descansen cómodamente al aire libre.</p>
+        </div>
+      </div>
+
+      <div class="feat fi d2">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12c2-4 4-6 6-6s4 4 6 4 4-6 6-6"/><path d="M2 18c2-4 4-6 6-6s4 4 6 4 4-6 6-6"/></svg>
+        </div>
+        <div>
+          <h4>Piscina natural</h4>
+          <p>Un espacio acuático natural donde los perros pueden refrescarse y jugar libremente.</p>
+        </div>
+      </div>
+
+      <div class="feat fi">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polygon points="3 20 9 4 15 14 19 8 21 20 3 20"/></svg>
+        </div>
+        <div>
+          <h4>2 parques con pendientes</h4>
+          <p>Terrenos variados con subidas y bajadas que estimulan el ejercicio y el instinto natural.</p>
+        </div>
+      </div>
+
+      <div class="feat fi d1">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <h4>Caniles individuales con A/C</h4>
+          <p>Cada perro tiene su propio canil individual con aire acondicionado para mayor comodidad.</p>
+        </div>
+      </div>
+
+      <div class="feat fi d2">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h4>Visitas los sábados</h4>
+          <p>Los sábados al mediodía podés visitar el parque. Coordiná con agenda previa por WhatsApp.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ZONAS CON TRASLADO -->
+<section id="zonas">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag fi">Cobertura</span>
+      <h2 class="fi">Zonas con traslado</h2>
+      <p class="section-sub fi">Buscamos y devolvemos a tu perro directamente en tu puerta.</p>
+    </div>
+    <div class="chips fi">
+      <span class="chip">Pocitos</span>
+      <span class="chip">Malvín</span>
+      <span class="chip">Tres Cruces</span>
+      <span class="chip">La Comercial</span>
+      <span class="chip">La Blanqueada</span>
+      <span class="chip">Paso Molino</span>
+      <span class="chip">Prado</span>
+      <span class="chip">Sayago</span>
+      <span class="chip">Colón</span>
+      <span class="chip">Maroñas</span>
+      <span class="chip">La Unión</span>
+      <span class="chip">Ciudad de la Costa</span>
+      <span class="chip">Zona Aeropuerto</span>
+      <span class="chip">Carrasco</span>
+    </div>
+    <p class="zonas-nota fi">¿Tu zona no está? <a href="https://wa.me/59899571818" target="_blank" rel="noopener">Consultanos por WhatsApp</a> — podemos coordinar.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag fi">Preguntas frecuentes</span>
+      <h2 class="fi">¿Tenés dudas?</h2>
+      <p class="section-sub fi">Las respuestas a las consultas más comunes que recibimos.</p>
+    </div>
+    <div class="faq-list fi">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Mi perro puede ir si nunca socializó?
+          <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-in">Se hace una evaluación previa con preguntas sobre socialización, comportamiento con personas y con otros perros. En base a eso evaluamos si el parque es el lugar indicado para tu compañero.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Qué razas no se admiten?
+          <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-in">Por seguridad, actualmente no admitimos Pitbull, Mastín Napolitano ni Rottweiler.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Cómo es el proceso para el pensionado?
+          <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-in">El perro pasa primero un día de campo para conocer el espacio, luego una noche para adaptarse, y de ahí se continúa el pensionado según necesidad. Esto garantiza que la experiencia sea positiva.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Puedo visitar el parque?
+          <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-in">Sí, los sábados al mediodía con agenda previa. Coordiná por WhatsApp y te reservamos un turno para conocer el parque en persona.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          ¿Hacen adiestramiento?
+          <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a" role="region">
+          <div class="faq-a-in">No hacemos adiestramiento formal, pero ofrecemos clases de obediencia para dueños. Son individuales, de 1 a 1:30 h, con un costo de $1.200.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacto">
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <h3>Los Tilos</h3>
+      <p>Parque canino en El Colorado, Canelones.<br>Un espacio natural pensado para el bienestar y la alegría de tu perro.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Contacto</h4>
+      <ul class="ft-links">
+        <li>
+          <a href="https://wa.me/59899571818" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            099 571 818
+          </a>
+        </li>
+        <li>
+          <a href="https://instagram.com/lostilosparquecanino" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            @lostilosparquecanino
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Ubicación</h4>
+      <ul class="ft-links">
+        <li>
+          <a href="https://maps.app.goo.gl/K8EQHsNSE8snQjoA7" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            El Colorado, Canelones, Uruguay
+          </a>
+        </li>
+      </ul>
+      <div class="ft-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3278!2d-56.038!3d-34.765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a1cb0001b924d5%3A0x50da77a9d9017bba!2sEstancia%20La%20Josefina!5e0!3m2!1ses!2suy!4v1700000000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación Los Tilos Parque Canino">
+        </iframe>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Días de traslado</h4>
+      <ul class="ft-links">
+        <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:17px;height:17px;flex-shrink:0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Lun · Jue · Vie · Sáb · Dom</span></li>
+        <li><span style="opacity:.45"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:17px;height:17px;flex-shrink:0" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>Sin traslado: martes y miércoles</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 Los Tilos Parque Canino · El Colorado, Canelones</span>
+    <a href="https://wa.me/59899571818" target="_blank" rel="noopener">Consultar por WhatsApp →</a>
+  </div>
+</footer>
+
+<button class="go-top" id="goTop" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// ── NAVBAR SCROLL ──────────────────────────────────────────
+const nav = document.getElementById('nav');
+const goTop = document.getElementById('goTop');
+window.addEventListener('scroll', () => {
+  const sc = window.scrollY > 60;
+  nav.classList.toggle('sc', sc);
+  goTop.classList.toggle('v', sc);
+}, {passive: true});
+goTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+
+// ── HAMBURGER ──────────────────────────────────────────────
+const hbg = document.getElementById('hbg');
+const navLinks = document.getElementById('navLinks');
+hbg.addEventListener('click', () => {
+  hbg.classList.toggle('on');
+  navLinks.classList.toggle('op');
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hbg.classList.remove('on');
+  navLinks.classList.remove('op');
+}));
+
+// ── FADE-IN OBSERVER ───────────────────────────────────────
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('v'); io.unobserve(e.target); } });
+}, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fi').forEach(el => io.observe(el));
+
+// ── CAROUSEL ───────────────────────────────────────────────
+const track  = document.getElementById('cTrack');
+const slides = track.querySelectorAll('.c-slide');
+const dots   = document.getElementById('cDots');
+let cur = 0, spv = 1;
+
+const spv_ = () => window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1;
+const maxP  = () => Math.max(0, slides.length - spv);
+
+function buildDots() {
+  dots.innerHTML = '';
+  for (let i = 0; i <= maxP(); i++) {
+    const b = document.createElement('button');
+    b.className = 'c-dot' + (i === cur ? ' on' : '');
+    b.setAttribute('aria-label', `Foto ${i+1}`);
+    b.addEventListener('click', () => go(i));
+    dots.appendChild(b);
+  }
+}
+function updDots() {
+  dots.querySelectorAll('.c-dot').forEach((d,i) => d.classList.toggle('on', i === cur));
+}
+function go(i) {
+  cur = Math.max(0, Math.min(i, maxP()));
+  track.style.transform = `translateX(-${cur * (100/spv)}%)`;
+  updDots();
+}
+function init() {
+  spv = spv_();
+  slides.forEach(s => s.style.minWidth = `${100/spv}%`);
+  cur = Math.min(cur, maxP());
+  buildDots();
+  go(cur);
+}
+document.getElementById('cPrev').addEventListener('click', () => go(cur - 1));
+document.getElementById('cNext').addEventListener('click', () => go(cur + 1));
+
+// swipe
+let tx = 0;
+track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+track.addEventListener('touchend',   e => {
+  const d = tx - e.changedTouches[0].clientX;
+  if (Math.abs(d) > 45) go(d > 0 ? cur+1 : cur-1);
+});
+
+window.addEventListener('resize', init);
+init();
+
+// ── LIGHTBOX ───────────────────────────────────────────────
+const lb     = document.getElementById('lb');
+const lbWrap = document.getElementById('lbWrap');
+
+function openLb(slide) {
+  const img = slide.querySelector('img');
+  lbWrap.innerHTML = '';
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'lb-close';
+  closeBtn.innerHTML = '&times;';
+  closeBtn.setAttribute('aria-label', 'Cerrar');
+  closeBtn.addEventListener('click', closeLb);
+  lbWrap.appendChild(closeBtn);
+  if (img) {
+    const big = document.createElement('img');
+    big.src = img.src; big.alt = img.alt;
+    lbWrap.appendChild(big);
+  } else {
+    const ph = document.createElement('div');
+    ph.className = 'lb-ph'; ph.textContent = 'Foto próximamente';
+    lbWrap.appendChild(ph);
+  }
+  lb.classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() { lb.classList.remove('on'); document.body.style.overflow = ''; }
+document.querySelectorAll('.c-inner').forEach(s => s.addEventListener('click', () => openLb(s)));
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+// ── FAQ ACCORDION ──────────────────────────────────────────
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const open = btn.classList.contains('on');
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.classList.remove('on'); q.setAttribute('aria-expanded','false');
+      q.nextElementSibling.classList.remove('op');
+    });
+    if (!open) {
+      btn.classList.add('on'); btn.setAttribute('aria-expanded','true');
+      btn.nextElementSibling.classList.add('op');
+    }
+  });
+});
+</script>
+</body>
+</html>
