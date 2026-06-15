@@ -52,8 +52,11 @@ section{padding:5rem 1.5rem}
 .nav-logo{font-family:var(--fs);font-size:1.25rem;color:var(--vd);text-decoration:none}
 .nav-logo small{display:block;font-size:.7rem;color:var(--vm);font-family:var(--fss);letter-spacing:1.5px;text-transform:uppercase}
 .nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
-.nav-links a{text-decoration:none;color:var(--ne);font-size:.83rem;letter-spacing:.3px;transition:color .2s}
+.nav-links a{text-decoration:none;color:var(--ne);font-size:.83rem;letter-spacing:.3px;transition:color .2s;position:relative}
 .nav-links a:hover{color:var(--vd)}
+.nav-links a.active:not(.btn-wa-nav){color:var(--vd)}
+.nav-links a.active:not(.btn-wa-nav)::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:2px;background:var(--vd);border-radius:2px}
+@media(max-width:768px){.nav-links a.active:not(.btn-wa-nav)::after{bottom:-2px}}
 .btn-wa-nav{background:var(--vd)!important;color:var(--bl)!important;padding:.45rem 1.1rem;border-radius:50px;font-size:.78rem!important;transition:var(--tr)!important;white-space:nowrap}
 .btn-wa-nav:hover{background:var(--vm)!important}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
@@ -94,7 +97,7 @@ section{padding:5rem 1.5rem}
 
 /* ===== ACTIVIDADES ===== */
 #actividades{background:var(--bl)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:1.5rem}
 .card{background:var(--cr);border-radius:var(--rd);padding:2rem;border:1px solid rgba(59,109,17,.07);transition:var(--tr);position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--vd),var(--vm))}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--sh)}
@@ -188,6 +191,12 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 .ft-bottom a{color:var(--vc);text-decoration:none}
 .ft-bottom a:hover{text-decoration:underline}
 
+/* ===== BOTÓN SECUNDARIO (Instagram, etc.) ===== */
+.btn-secondary{display:inline-flex;align-items:center;gap:.5rem;color:var(--vd);border:1.5px solid var(--vd);padding:.7rem 1.6rem;border-radius:50px;text-decoration:none;font-size:.88rem;font-weight:500;transition:var(--tr);background:transparent}
+.btn-secondary:hover{background:var(--vd);color:var(--bl)}
+.btn-secondary svg{width:18px;height:18px;flex-shrink:0}
+.galeria-cta{text-align:center;margin-top:1.8rem}
+
 /* ===== FORMULARIO CONTACTO ===== */
 #contacto{background:var(--cr)}
 .contact-form{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:1.2rem}
@@ -203,8 +212,13 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 .cf-submit:hover{background:var(--vm);transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,109,17,.35)}
 .cf-submit svg{width:20px;height:20px;flex-shrink:0}
 
+/* ===== WHATSAPP FLOTANTE ===== */
+.wa-float{position:fixed;bottom:1.5rem;right:1.5rem;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 18px rgba(37,211,102,.45);z-index:200;transition:transform .2s ease,box-shadow .2s ease}
+.wa-float:hover{transform:scale(1.08);box-shadow:0 6px 26px rgba(37,211,102,.6)}
+.wa-float svg{width:30px;height:30px}
+
 /* ===== SCROLL TOP ===== */
-.go-top{position:fixed;bottom:2rem;right:1.5rem;width:42px;height:42px;background:var(--vd);color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(59,109,17,.35);opacity:0;transform:translateY(10px);transition:var(--tr);z-index:100}
+.go-top{position:fixed;bottom:6rem;right:1.5rem;width:42px;height:42px;background:var(--vd);color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(59,109,17,.35);opacity:0;transform:translateY(10px);transition:var(--tr);z-index:100}
 .go-top.v{opacity:1;transform:none}
 .go-top:hover{background:var(--vm)}
 .go-top svg{width:19px;height:19px}
@@ -397,6 +411,12 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
       </button>
     </div>
     <div class="c-dots" id="cDots" aria-hidden="true"></div>
+    <div class="galeria-cta fi">
+      <a href="https://instagram.com/lostilosparquecanino" target="_blank" rel="noopener" class="btn-secondary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Ver más en Instagram
+      </a>
+    </div>
   </div>
 </section>
 
@@ -608,6 +628,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
             <option>Carrasco</option>
             <option>Otra zona</option>
           </select>
+          <input type="text" id="cfZonaOtra" placeholder="Escribí tu zona/barrio" style="display:none;margin-top:.5rem" aria-label="Especificá tu zona">
         </div>
       </div>
       <div class="cf-row">
@@ -616,14 +637,18 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
           <input type="text" id="cfRaza" placeholder="Ej: Labrador, Cruza, Golden…">
         </div>
         <div class="cf-field">
-          <label for="cfSociable">¿Es sociable con perros y humanos?</label>
-          <select id="cfSociable">
-            <option value="">Seleccioná una opción</option>
-            <option>Sí</option>
-            <option>No</option>
-            <option>No estoy seguro</option>
-          </select>
+          <label for="cfCantidad">Cantidad de perros</label>
+          <input type="number" id="cfCantidad" min="1" value="1" required>
         </div>
+      </div>
+      <div class="cf-field">
+        <label for="cfSociable">¿Es sociable con perros y humanos?</label>
+        <select id="cfSociable">
+          <option value="">Seleccioná una opción</option>
+          <option>Sí</option>
+          <option>No</option>
+          <option>No estoy seguro</option>
+        </select>
       </div>
       <div class="cf-field">
         <label for="cfServicio">Servicio de interés</label>
@@ -701,11 +726,29 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
   </div>
 </footer>
 
+<a href="https://wa.me/59899571818" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 <button class="go-top" id="goTop" aria-label="Volver arriba">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
 <script>
+// ── NAV ACTIVE ─────────────────────────────────────────────
+const navSections = Array.from(document.querySelectorAll('#nosotros,#actividades,#galeria,#parque,#zonas,#faq,#contacto'));
+const navAnchors  = Array.from(document.querySelectorAll('.nav-links a:not(.btn-wa-nav)'));
+
+function updateActiveNav() {
+  const trigger = window.scrollY + Math.round(window.innerHeight * 0.3);
+  let cur = null;
+  navSections.forEach(s => { if (s.offsetTop <= trigger) cur = s.id; });
+  navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+}
+
+window.addEventListener('scroll', updateActiveNav, {passive: true});
+updateActiveNav();
+
 // ── NAVBAR SCROLL ──────────────────────────────────────────
 const nav = document.getElementById('nav');
 const goTop = document.getElementById('goTop');
@@ -813,17 +856,28 @@ lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
 // ── FORMULARIO → WHATSAPP ──────────────────────────────────
+document.getElementById('cfZona').addEventListener('change', function() {
+  const extra = document.getElementById('cfZonaOtra');
+  const show  = this.value === 'Otra zona';
+  extra.style.display = show ? 'block' : 'none';
+  if (!show) extra.value = '';
+});
+
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const nombre   = document.getElementById('cfNombre').value.trim()  || '(sin nombre)';
-  const zona     = document.getElementById('cfZona').value           || '(sin especificar)';
-  const raza     = document.getElementById('cfRaza').value.trim()    || '(sin especificar)';
-  const sociable = document.getElementById('cfSociable').value       || '(sin especificar)';
-  const servicio = document.getElementById('cfServicio').value       || '(sin especificar)';
+  const nombre      = document.getElementById('cfNombre').value.trim()    || '(sin nombre)';
+  const zonaSelect  = document.getElementById('cfZona').value;
+  const zonaOtra    = document.getElementById('cfZonaOtra').value.trim();
+  const zona        = zonaSelect === 'Otra zona' ? (zonaOtra || '(sin especificar)') : (zonaSelect || '(sin especificar)');
+  const raza        = document.getElementById('cfRaza').value.trim()     || '(sin especificar)';
+  const cantidad    = document.getElementById('cfCantidad').value        || '1';
+  const sociable    = document.getElementById('cfSociable').value        || '(sin especificar)';
+  const servicio    = document.getElementById('cfServicio').value        || '(sin especificar)';
   const msg = 'Hola! Te escribo desde la web. Mis datos:\n'
     + '- Nombre: '                       + nombre   + '\n'
     + '- Zona: '                         + zona     + '\n'
     + '- Raza/tipo de perro: '           + raza     + '\n'
+    + '- Cantidad de perros: '           + cantidad + '\n'
     + '- Sociable con perros/humanos: '  + sociable + '\n'
     + '- Servicio de interés: '          + servicio;
   window.open('https://wa.me/59899571818?text=' + encodeURIComponent(msg), '_blank', 'noopener');
