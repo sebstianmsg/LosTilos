@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Los Tilos Parque Canino — Día de campo, fin de semana, hotelería y pensionado para tu perro en El Colorado, Canelones, Uruguay.">
 <title>Los Tilos Parque Canino</title>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sebstianmsg.github.io/LosTilos/">
+<meta property="og:title" content="Los Tilos Parque Canino">
+<meta property="og:description" content="Los Tilos Parque Canino — Día de campo, fin de semana, hotelería y pensionado para tu perro en El Colorado, Canelones, Uruguay.">
+<meta property="og:image" content="https://sebstianmsg.github.io/LosTilos/Img%20carrusel/Img1.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Los Tilos Parque Canino">
+<meta name="twitter:description" content="Los Tilos Parque Canino — Día de campo, fin de semana, hotelería y pensionado para tu perro en El Colorado, Canelones, Uruguay.">
+<meta name="twitter:image" content="https://sebstianmsg.github.io/LosTilos/Img%20carrusel/Img1.png">
 <style>
 /* ===== RESET & VARIABLES ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -60,7 +73,7 @@ section{padding:5rem 1.5rem}
 .hero::after{content:'';position:absolute;bottom:0;left:-5%;right:-5%;height:100px;background:var(--bl);border-radius:60% 60% 0 0}
 .hero-logo{width:76px;height:76px;margin:0 auto 1.5rem}
 .hero h1{font-size:clamp(3rem,9vw,5.5rem);color:var(--vd);letter-spacing:-1px;margin-bottom:.4rem}
-.hero-sub{font-size:clamp(.8rem,2vw,.95rem);color:var(--vc);font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:2.5rem;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.hero-sub{font-size:clamp(.8rem,2vw,.95rem);color:#EAF3DE;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:2.5rem;text-shadow:0 1px 3px rgba(0,0,0,.5)}
 .btn-cta{display:inline-flex;align-items:center;gap:.55rem;background:var(--vd);color:var(--bl);padding:.9rem 2rem;border-radius:50px;text-decoration:none;font-size:.92rem;transition:var(--tr);box-shadow:0 4px 22px rgba(59,109,17,.3)}
 .btn-cta:hover{background:var(--vm);transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,109,17,.4)}
 .btn-cta svg{width:20px;height:20px;flex-shrink:0}
@@ -138,9 +151,9 @@ section{padding:5rem 1.5rem}
 
 /* ===== ZONAS ===== */
 #zonas{background:var(--bl)}
-.chips{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
-.chip{background:var(--vc);color:var(--vd);padding:.45rem 1.2rem;border-radius:50px;font-size:.84rem;font-weight:500;transition:var(--tr);cursor:default}
-.chip:hover{background:var(--vd);color:var(--bl)}
+.chips{display:flex;flex-wrap:wrap;gap:.65rem;justify-content:center}
+.chip{background:var(--vc);color:var(--vd);padding:.5rem 1.25rem;border-radius:50px;font-size:.83rem;font-weight:600;border:1.5px solid rgba(59,109,17,.18);box-shadow:0 1px 4px rgba(59,109,17,.08);transition:var(--tr);cursor:default;letter-spacing:.2px}
+.chip:hover{background:var(--vd);color:var(--bl);border-color:var(--vd);box-shadow:0 3px 12px rgba(59,109,17,.22);transform:translateY(-1px)}
 .zonas-nota{text-align:center;margin-top:1.8rem;font-size:.83rem;color:var(--gt)}
 .zonas-nota a{color:var(--vd);text-decoration:none;font-weight:500}
 .zonas-nota a:hover{text-decoration:underline}
@@ -174,6 +187,21 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 .ft-bottom{max-width:1100px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.76rem}
 .ft-bottom a{color:var(--vc);text-decoration:none}
 .ft-bottom a:hover{text-decoration:underline}
+
+/* ===== FORMULARIO CONTACTO ===== */
+#contacto{background:var(--cr)}
+.contact-form{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:1.2rem}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:600px){.cf-row{grid-template-columns:1fr}}
+.cf-field{display:flex;flex-direction:column;gap:.4rem}
+.cf-field label{font-size:.78rem;font-weight:600;color:var(--vd);letter-spacing:.5px;text-transform:uppercase}
+.cf-field input,.cf-field select{background:var(--bl);border:1.5px solid rgba(59,109,17,.15);border-radius:8px;padding:.75rem 1rem;font-size:.9rem;color:var(--ne);font-family:var(--fss);transition:border-color .2s,box-shadow .2s;outline:none;width:100%;appearance:none;-webkit-appearance:none}
+.cf-field input::placeholder{color:#bbb}
+.cf-field input:focus,.cf-field select:focus{border-color:var(--vm);box-shadow:0 0 0 3px rgba(99,153,34,.12)}
+.cf-field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23639922' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center;background-size:16px;padding-right:2.5rem;cursor:pointer}
+.cf-submit{background:var(--vd);color:var(--bl);border:none;padding:.9rem 2rem;border-radius:50px;font-size:.9rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:.55rem;transition:var(--tr);box-shadow:0 4px 22px rgba(59,109,17,.25);align-self:center;margin-top:.4rem;font-family:var(--fss)}
+.cf-submit:hover{background:var(--vm);transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,109,17,.35)}
+.cf-submit svg{width:20px;height:20px;flex-shrink:0}
 
 /* ===== SCROLL TOP ===== */
 .go-top{position:fixed;bottom:2rem;right:1.5rem;width:42px;height:42px;background:var(--vd);color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(59,109,17,.35);opacity:0;transform:translateY(10px);transition:var(--tr);z-index:100}
@@ -296,6 +324,21 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
         <p class="card-note">Pago en efectivo al momento de la entrega</p>
       </div>
 
+      <div class="card fi">
+        <div class="card-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>
+        </div>
+        <h3>Clases de obediencia</h3>
+        <p class="card-desc">Sesiones individuales para fortalecer la comunicación entre vos y tu perro.</p>
+        <div class="card-price">$1.200 / sesión</div>
+        <ul class="card-list">
+          <li>Sesiones individuales, sin el perro solo</li>
+          <li>Duración de 1 a 1:30 horas</li>
+          <li>Coordiná por WhatsApp</li>
+        </ul>
+        <p class="card-note">Pago en efectivo al momento de la clase</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -325,27 +368,27 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
         -->
 
         <div class="c-slide"><div class="c-inner" data-idx="0">
-          <img src="Img%20carrusel/Img1.png" alt="Los Tilos Parque Canino">
+          <img src="Img%20carrusel/Img1.png" alt="Pablo paseando junto a cuatro perros en el campo verde del parque">
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="1">
-          <img src="Img%20carrusel/Img2.png" alt="Los Tilos Parque Canino">
+          <img src="Img%20carrusel/Img2.png" alt="Grupo de perros corriendo libremente por el parque con las instalaciones al fondo">
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="2">
-          <img src="Img%20carrusel/Img3.png" alt="Los Tilos Parque Canino">
+          <img src="Img%20carrusel/Img3.png" alt="Vista amplia del parque con perros jugando y la piscina natural al fondo">
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="3">
-          <img src="Img%20carrusel/Img4.png" alt="Los Tilos Parque Canino">
+          <img src="Img%20carrusel/Img4.png" alt="Alameda de árboles con follaje verde que generan sombra abundante en el parque">
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="4">
-          <img src="Img%20carrusel/Img5.png" alt="Los Tilos Parque Canino">
+          <img src="Img%20carrusel/Img5.png" alt="Retrato de dos perros felices descansando a la sombra de los árboles del parque">
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="5">
-          <img src="Img%20carrusel/Img6.png" alt="Los Tilos Parque Canino">
+          <img src="Img%20carrusel/Img6.png" alt="Boxer mirando a cámara en el entorno natural del parque">
         </div></div>
 
       </div>
@@ -523,7 +566,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
           <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-a" role="region">
-          <div class="faq-a-in">No hacemos adiestramiento formal, pero ofrecemos clases de obediencia para dueños. Son individuales, de 1 a 1:30 h, con un costo de $1.200.</div>
+          <div class="faq-a-in">No hacemos adiestramiento formal, pero sí ofrecemos clases de obediencia. Encontrás todos los detalles en la sección <a href="#actividades" style="color:var(--vd);font-weight:500">Actividades</a>.</div>
         </div>
       </div>
 
@@ -531,8 +574,77 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
   </div>
 </section>
 
+<!-- CONTACTO / FORMULARIO -->
+<section id="contacto">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag fi">Contacto</span>
+      <h2 class="fi">Escribinos por WhatsApp</h2>
+      <p class="section-sub fi">Completá los datos y abrís el chat con tu consulta ya redactada.</p>
+    </div>
+    <form class="contact-form fi" id="contactForm" novalidate>
+      <div class="cf-row">
+        <div class="cf-field">
+          <label for="cfNombre">Nombre</label>
+          <input type="text" id="cfNombre" placeholder="Tu nombre" autocomplete="given-name">
+        </div>
+        <div class="cf-field">
+          <label for="cfZona">Zona / barrio</label>
+          <select id="cfZona">
+            <option value="">Seleccioná tu zona</option>
+            <option>Pocitos</option>
+            <option>Malvín</option>
+            <option>Tres Cruces</option>
+            <option>La Comercial</option>
+            <option>La Blanqueada</option>
+            <option>Paso Molino</option>
+            <option>Prado</option>
+            <option>Sayago</option>
+            <option>Colón</option>
+            <option>Maroñas</option>
+            <option>La Unión</option>
+            <option>Ciudad de la Costa</option>
+            <option>Zona Aeropuerto</option>
+            <option>Carrasco</option>
+            <option>Otra zona</option>
+          </select>
+        </div>
+      </div>
+      <div class="cf-row">
+        <div class="cf-field">
+          <label for="cfRaza">Raza o tipo de perro</label>
+          <input type="text" id="cfRaza" placeholder="Ej: Labrador, Cruza, Golden…">
+        </div>
+        <div class="cf-field">
+          <label for="cfSociable">¿Es sociable con perros y humanos?</label>
+          <select id="cfSociable">
+            <option value="">Seleccioná una opción</option>
+            <option>Sí</option>
+            <option>No</option>
+            <option>No estoy seguro</option>
+          </select>
+        </div>
+      </div>
+      <div class="cf-field">
+        <label for="cfServicio">Servicio de interés</label>
+        <select id="cfServicio">
+          <option value="">Seleccioná un servicio</option>
+          <option>Día de campo</option>
+          <option>Fin de semana</option>
+          <option>Hotelería y pensionado</option>
+          <option>Clases de obediencia</option>
+        </select>
+      </div>
+      <button type="submit" class="cf-submit">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar por WhatsApp
+      </button>
+    </form>
+  </div>
+</section>
+
 <!-- FOOTER -->
-<footer id="contacto">
+<footer>
   <div class="ft-grid">
     <div class="ft-brand">
       <h3>Los Tilos</h3>
@@ -699,6 +811,23 @@ function closeLb() { lb.classList.remove('on'); document.body.style.overflow = '
 document.querySelectorAll('.c-inner').forEach(s => s.addEventListener('click', () => openLb(s)));
 lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+// ── FORMULARIO → WHATSAPP ──────────────────────────────────
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const nombre   = document.getElementById('cfNombre').value.trim()  || '(sin nombre)';
+  const zona     = document.getElementById('cfZona').value           || '(sin especificar)';
+  const raza     = document.getElementById('cfRaza').value.trim()    || '(sin especificar)';
+  const sociable = document.getElementById('cfSociable').value       || '(sin especificar)';
+  const servicio = document.getElementById('cfServicio').value       || '(sin especificar)';
+  const msg = 'Hola! Te escribo desde la web. Mis datos:\n'
+    + '- Nombre: '                       + nombre   + '\n'
+    + '- Zona: '                         + zona     + '\n'
+    + '- Raza/tipo de perro: '           + raza     + '\n'
+    + '- Sociable con perros/humanos: '  + sociable + '\n'
+    + '- Servicio de interés: '          + servicio;
+  window.open('https://wa.me/59899571818?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+});
 
 // ── FAQ ACCORDION ──────────────────────────────────────────
 document.querySelectorAll('.faq-q').forEach(btn => {
