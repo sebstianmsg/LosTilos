@@ -97,7 +97,7 @@ section{padding:5rem 1.5rem}
 
 /* ===== ACTIVIDADES ===== */
 #actividades{background:var(--bl)}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:1.5rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:1.5rem}
 .card{background:var(--cr);border-radius:var(--rd);padding:2rem;border:1px solid rgba(59,109,17,.07);transition:var(--tr);position:relative;overflow:hidden}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--vd),var(--vm))}
 .card:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--sh)}
@@ -218,7 +218,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 .wa-float svg{width:30px;height:30px}
 
 /* ===== SCROLL TOP ===== */
-.go-top{position:fixed;bottom:6rem;right:1.5rem;width:42px;height:42px;background:var(--vd);color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(59,109,17,.35);opacity:0;transform:translateY(10px);transition:var(--tr);z-index:100}
+.go-top{position:fixed;bottom:8rem;right:1.5rem;width:42px;height:42px;background:var(--vd);color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(59,109,17,.35);opacity:0;transform:translateY(10px);transition:var(--tr);z-index:100}
 .go-top.v{opacity:1;transform:none}
 .go-top:hover{background:var(--vm)}
 .go-top svg{width:19px;height:19px}
