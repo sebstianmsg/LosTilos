@@ -38,6 +38,7 @@
   "sameAs": ["https://www.instagram.com/lostilosparquecanino"]
 }
 </script>
+<script>(function(){var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)})();</script>
 <style>
 /* ===== RESET & VARIABLES ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -253,6 +254,42 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* ===== THEME TOGGLE BUTTON ===== */
+.theme-btn{background:none;border:1.5px solid rgba(59,109,17,.25);color:var(--vd);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s,color .2s;flex-shrink:0}
+.theme-btn:hover{background:var(--vc);border-color:var(--vd)}
+.theme-btn .ico-sun{display:none}
+
+/* ===== DARK MODE ===== */
+[data-theme="dark"]{
+  color-scheme:dark;
+  --vd:#6ab827;--vm:#8ed43c;--vc:#1a2e0f;
+  --cr:#0e1a09;--bl:#162310;--gt:#8fa882;--ne:#ddecd4;
+  --sh:rgba(0,0,0,.5);
+}
+[data-theme="dark"] .nav{background:rgba(14,26,9,.97)}
+[data-theme="dark"] .hero{background:linear-gradient(rgba(0,18,0,.72),rgba(0,18,0,.62)),url('parque-hero.jpg') center/cover no-repeat}
+[data-theme="dark"] .hero h1{color:var(--vm)}
+[data-theme="dark"] .btn-cta,[data-theme="dark"] .btn-wa-nav,[data-theme="dark"] .cf-submit{color:#fff}
+[data-theme="dark"] .ft-brand h3,[data-theme="dark"] .ft-col h4{color:#ddecd4}
+[data-theme="dark"] .ft-links a:hover,[data-theme="dark"] .ft-bottom a{color:var(--vm)}
+[data-theme="dark"] #parque{background:#0f2207}
+[data-theme="dark"] #parque h2{color:var(--vm)}
+[data-theme="dark"] #parque .section-tag{color:var(--vm)}
+[data-theme="dark"] .feat h4{color:#ddecd4}
+[data-theme="dark"] footer{background:#050e03;color:rgba(200,220,195,.65)}
+[data-theme="dark"] .c-btn{background:rgba(22,35,15,.92)}
+[data-theme="dark"] .c-btn svg{color:var(--vm)}
+[data-theme="dark"] .c-dot{background:#2a3d24}
+[data-theme="dark"] .cf-field input,[data-theme="dark"] .cf-field select{background:#1f3018;border-color:rgba(99,153,34,.2);color:var(--ne)}
+[data-theme="dark"] .go-top{background:var(--vm)}
+[data-theme="dark"] .theme-btn{border-color:rgba(142,212,60,.25);color:var(--vm)}
+[data-theme="dark"] .theme-btn:hover{background:var(--vc)}
+[data-theme="dark"] .theme-btn .ico-sun{display:block}
+[data-theme="dark"] .theme-btn .ico-moon{display:none}
+
+/* transición suave al cambiar tema */
+.theme-transition *,.theme-transition *::before,.theme-transition *::after{transition:background-color .3s ease,color .2s ease,border-color .2s ease!important}
 </style>
 </head>
 <body>
@@ -278,6 +315,12 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
     <li><a href="#parque">El Parque</a></li>
     <li><a href="#zonas">Zonas</a></li>
     <li><a href="#faq">Preguntas</a></li>
+    <li>
+      <button class="theme-btn" id="themeToggle" aria-label="Cambiar a modo oscuro">
+        <svg class="ico-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </li>
     <li><a href="https://wa.me/59899571818" target="_blank" rel="noopener noreferrer" class="btn-wa-nav">WhatsApp</a></li>
   </ul>
 </nav>
@@ -984,6 +1027,36 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     }
   });
 });
+
+// ── DARK MODE ──────────────────────────────────────────────
+(function(){
+  const btn  = document.getElementById('themeToggle');
+  const html = document.documentElement;
+
+  function updateLabel() {
+    const dark = html.getAttribute('data-theme') === 'dark';
+    btn.setAttribute('aria-label', dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+  }
+
+  btn.addEventListener('click', () => {
+    const dark = html.getAttribute('data-theme') === 'dark';
+    const next = dark ? 'light' : 'dark';
+    html.classList.add('theme-transition');
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateLabel();
+    setTimeout(() => html.classList.remove('theme-transition'), 350);
+  });
+
+  window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      updateLabel();
+    }
+  });
+
+  updateLabel();
+})();
 </script>
 </body>
 </html>
