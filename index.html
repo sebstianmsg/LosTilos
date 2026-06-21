@@ -18,12 +18,32 @@
 <meta name="twitter:title" content="Los Tilos Parque Canino">
 <meta name="twitter:description" content="Los Tilos Parque Canino — Día de campo, fin de semana, hotelería y pensionado para tu perro en El Colorado, Canelones, Uruguay.">
 <meta name="twitter:image" content="https://sebstianmsg.github.io/LosTilos/Img%20carrusel/Img1.png">
+<meta name="theme-color" content="#3B6D11">
+<link rel="canonical" href="https://sebstianmsg.github.io/LosTilos/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Los Tilos Parque Canino",
+  "description": "Parque canino en El Colorado, Canelones, Uruguay. Día de campo, fin de semana, hotelería, pensionado y clases de obediencia para perros.",
+  "telephone": "+59899571818",
+  "url": "https://sebstianmsg.github.io/LosTilos/",
+  "image": "https://sebstianmsg.github.io/LosTilos/Img%20carrusel/Img1.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "El Colorado",
+    "addressRegion": "Canelones",
+    "addressCountry": "UY"
+  },
+  "sameAs": ["https://www.instagram.com/lostilosparquecanino"]
+}
+</script>
 <style>
 /* ===== RESET & VARIABLES ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --vd:#3B6D11;--vm:#639922;--vc:#EAF3DE;--cr:#F5F0E8;
-  --bl:#ffffff;--gt:#666;--ne:#1a1a1a;
+  --bl:#ffffff;--gt:#555;--ne:#1a1a1a;
   --sh:rgba(59,109,17,.15);--tr:all .3s ease;--rd:12px;
   --fs:Georgia,serif;--fss:system-ui,-apple-system,sans-serif;
 }
@@ -33,6 +53,9 @@ img{max-width:100%;display:block}
 h1,h2,h3{font-family:var(--fs);font-weight:normal;line-height:1.2}
 h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--vd);margin-bottom:.4rem}
 a{color:inherit}
+.skip-link{position:absolute;top:-100%;left:1rem;background:var(--vd);color:#fff;padding:.5rem 1.2rem;border-radius:6px;z-index:9999;font-size:.85rem;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:1rem}
+:focus-visible{outline:2px solid var(--vd);outline-offset:3px;border-radius:4px}
 
 /* ===== UTILS ===== */
 .container{max-width:1100px;margin:0 auto}
@@ -128,8 +151,8 @@ section{padding:5rem 1.5rem}
 .c-btn svg{width:20px;height:20px;color:var(--vd)}
 .c-btn.prev{left:.75rem}.c-btn.next{right:.75rem}
 .c-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.2rem}
-.c-dot{width:8px;height:8px;border-radius:50%;background:#ccc;border:none;cursor:pointer;transition:var(--tr);padding:0}
-.c-dot.on{background:var(--vd);width:22px;border-radius:4px}
+.c-dot{width:8px;height:8px;border-radius:50%;background:#ccc;border:none;cursor:pointer;transition:var(--tr);padding:8px 6px;box-sizing:content-box;background-clip:content-box}
+.c-dot.on{background:var(--vd);width:22px;border-radius:4px;background-clip:content-box}
 
 /* ===== LIGHTBOX ===== */
 .lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center;padding:1rem}
@@ -144,13 +167,13 @@ section{padding:5rem 1.5rem}
 #parque{background:var(--vd);color:var(--bl)}
 #parque h2{color:var(--cr)}
 #parque .section-tag{color:var(--vc)}
-#parque .section-sub{color:rgba(255,255,255,.55)}
+#parque .section-sub{color:rgba(255,255,255,.78)}
 .feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
 .feat{display:flex;align-items:flex-start;gap:1rem}
 .feat-ico{width:46px;height:46px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .feat-ico svg{width:22px;height:22px;color:var(--vc)}
 .feat h4{font-size:.92rem;font-weight:600;margin-bottom:.25rem;color:var(--bl)}
-.feat p{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.55}
+.feat p{font-size:.82rem;color:rgba(255,255,255,.82);line-height:1.55}
 
 /* ===== ZONAS ===== */
 #zonas{background:var(--bl)}
@@ -170,7 +193,7 @@ section{padding:5rem 1.5rem}
 .faq-arr{width:18px;height:18px;flex-shrink:0;transition:transform .3s;color:var(--vm)}
 .faq-q.on .faq-arr{transform:rotate(180deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.faq-a.op{max-height:200px}
+.faq-a.op{max-height:600px}
 .faq-a-in{padding:0 1.4rem 1.2rem;color:var(--gt);font-size:.86rem;line-height:1.7;border-top:1px solid rgba(59,109,17,.06)}
 
 /* ===== MAPA FOOTER ===== */
@@ -207,6 +230,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 .cf-field input,.cf-field select{background:var(--bl);border:1.5px solid rgba(59,109,17,.15);border-radius:8px;padding:.75rem 1rem;font-size:.9rem;color:var(--ne);font-family:var(--fss);transition:border-color .2s,box-shadow .2s;outline:none;width:100%;appearance:none;-webkit-appearance:none}
 .cf-field input::placeholder{color:#bbb}
 .cf-field input:focus,.cf-field select:focus{border-color:var(--vm);box-shadow:0 0 0 3px rgba(99,153,34,.12)}
+.cf-field input.err,.cf-field select.err{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.1)}
 .cf-field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23639922' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center;background-size:16px;padding-right:2.5rem;cursor:pointer}
 .cf-submit{background:var(--vd);color:var(--bl);border:none;padding:.9rem 2rem;border-radius:50px;font-size:.9rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:.55rem;transition:var(--tr);box-shadow:0 4px 22px rgba(59,109,17,.25);align-self:center;margin-top:.4rem;font-family:var(--fss)}
 .cf-submit:hover{background:var(--vm);transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,109,17,.35)}
@@ -226,10 +250,20 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 </head>
 <body>
 
+<a href="#nosotros" class="skip-link">Saltar al contenido</a>
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="ico-wa" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#inicio" class="nav-logo">Los Tilos <small>Parque Canino</small></a>
-  <button class="hbg" id="hbg" aria-label="Menú"><span></span><span></span><span></span></button>
+  <button class="hbg" id="hbg" aria-label="Menú" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#actividades">Actividades</a></li>
@@ -237,7 +271,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
     <li><a href="#parque">El Parque</a></li>
     <li><a href="#zonas">Zonas</a></li>
     <li><a href="#faq">Preguntas</a></li>
-    <li><a href="https://wa.me/59899571818" target="_blank" rel="noopener" class="btn-wa-nav">WhatsApp</a></li>
+    <li><a href="https://wa.me/59899571818" target="_blank" rel="noopener noreferrer" class="btn-wa-nav">WhatsApp</a></li>
   </ul>
 </nav>
 
@@ -254,8 +288,8 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
   </div>
   <h1 class="fi">Los Tilos</h1>
   <p class="hero-sub fi d1">Parque Canino · El Colorado, Canelones</p>
-  <a href="https://wa.me/59899571818" target="_blank" rel="noopener" class="btn-cta fi d2">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <a href="https://wa.me/59899571818" target="_blank" rel="noopener noreferrer" class="btn-cta fi d2">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg>
     Consultar por WhatsApp
   </a>
   <div class="hero-scroll" aria-hidden="true">
@@ -276,7 +310,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
       </div>
       <div class="nosotros-video fi d2">
         <div class="video-frame">
-          <video src="Img%20carrusel/Pablo.mp4" controls playsinline preload="metadata"></video>
+          <video src="Img%20carrusel/Pablo.mp4" controls playsinline preload="metadata" poster="Img%20carrusel/Img1.png" aria-label="Pablo presenta Los Tilos Parque Canino"></video>
         </div>
       </div>
     </div>
@@ -386,23 +420,23 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="1">
-          <img src="Img%20carrusel/Img2.png" alt="Grupo de perros corriendo libremente por el parque con las instalaciones al fondo">
+          <img src="Img%20carrusel/Img2.png" alt="Grupo de perros corriendo libremente por el parque con las instalaciones al fondo" loading="lazy">
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="2">
-          <img src="Img%20carrusel/Img3.png" alt="Vista amplia del parque con perros jugando y la piscina natural al fondo">
+          <img src="Img%20carrusel/Img3.png" alt="Vista amplia del parque con perros jugando y la piscina natural al fondo" loading="lazy">
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="3">
-          <img src="Img%20carrusel/Img4.png" alt="Alameda de árboles con follaje verde que generan sombra abundante en el parque">
+          <img src="Img%20carrusel/Img4.png" alt="Alameda de árboles con follaje verde que generan sombra abundante en el parque" loading="lazy">
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="4">
-          <img src="Img%20carrusel/Img5.png" alt="Retrato de dos perros felices descansando a la sombra de los árboles del parque">
+          <img src="Img%20carrusel/Img5.png" alt="Retrato de dos perros felices descansando a la sombra de los árboles del parque" loading="lazy">
         </div></div>
 
         <div class="c-slide"><div class="c-inner" data-idx="5">
-          <img src="Img%20carrusel/Img6.png" alt="Boxer mirando a cámara en el entorno natural del parque">
+          <img src="Img%20carrusel/Img6.png" alt="Boxer mirando a cámara en el entorno natural del parque" loading="lazy">
         </div></div>
 
       </div>
@@ -412,7 +446,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
     </div>
     <div class="c-dots" id="cDots" aria-hidden="true"></div>
     <div class="galeria-cta fi">
-      <a href="https://instagram.com/lostilosparquecanino" target="_blank" rel="noopener" class="btn-secondary">
+      <a href="https://instagram.com/lostilosparquecanino" target="_blank" rel="noopener noreferrer" class="btn-secondary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         Ver más en Instagram
       </a>
@@ -526,7 +560,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
       <span class="chip">Zona Aeropuerto</span>
       <span class="chip">Carrasco</span>
     </div>
-    <p class="zonas-nota fi">¿Tu zona no está? <a href="https://wa.me/59899571818" target="_blank" rel="noopener">Consultanos por WhatsApp</a> — podemos coordinar.</p>
+    <p class="zonas-nota fi">¿Tu zona no está? <a href="https://wa.me/59899571818" target="_blank" rel="noopener noreferrer">Consultanos por WhatsApp</a> — podemos coordinar.</p>
   </div>
 </section>
 
@@ -541,51 +575,51 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
     <div class="faq-list fi">
 
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+        <button class="faq-q" id="faq-q-1" aria-expanded="false">
           ¿Mi perro puede ir si nunca socializó?
           <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a" role="region">
+        <div class="faq-a" role="region" aria-labelledby="faq-q-1">
           <div class="faq-a-in">Se hace una evaluación previa con preguntas sobre socialización, comportamiento con personas y con otros perros. En base a eso evaluamos si el parque es el lugar indicado para tu compañero.</div>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+        <button class="faq-q" id="faq-q-2" aria-expanded="false">
           ¿Qué razas no se admiten?
           <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a" role="region">
+        <div class="faq-a" role="region" aria-labelledby="faq-q-2">
           <div class="faq-a-in">Por seguridad, actualmente no admitimos Pitbull, Mastín Napolitano ni Rottweiler.</div>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+        <button class="faq-q" id="faq-q-3" aria-expanded="false">
           ¿Cómo es el proceso para el pensionado?
           <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a" role="region">
+        <div class="faq-a" role="region" aria-labelledby="faq-q-3">
           <div class="faq-a-in">El perro pasa primero un día de campo para conocer el espacio, luego una noche para adaptarse, y de ahí se continúa el pensionado según necesidad. Esto garantiza que la experiencia sea positiva.</div>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+        <button class="faq-q" id="faq-q-4" aria-expanded="false">
           ¿Puedo visitar el parque?
           <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a" role="region">
+        <div class="faq-a" role="region" aria-labelledby="faq-q-4">
           <div class="faq-a-in">Sí, los sábados al mediodía con agenda previa. Coordiná por WhatsApp y te reservamos un turno para conocer el parque en persona.</div>
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">
+        <button class="faq-q" id="faq-q-5" aria-expanded="false">
           ¿Hacen adiestramiento?
           <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="faq-a" role="region">
+        <div class="faq-a" role="region" aria-labelledby="faq-q-5">
           <div class="faq-a-in">No hacemos adiestramiento formal, pero sí ofrecemos clases de obediencia. Encontrás todos los detalles en la sección <a href="#actividades" style="color:var(--vd);font-weight:500">Actividades</a>.</div>
         </div>
       </div>
@@ -661,7 +695,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
         </select>
       </div>
       <button type="submit" class="cf-submit">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg>
         Enviar por WhatsApp
       </button>
     </form>
@@ -679,13 +713,13 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
       <h4>Contacto</h4>
       <ul class="ft-links">
         <li>
-          <a href="https://wa.me/59899571818" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <a href="https://wa.me/59899571818" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg>
             099 571 818
           </a>
         </li>
         <li>
-          <a href="https://instagram.com/lostilosparquecanino" target="_blank" rel="noopener">
+          <a href="https://instagram.com/lostilosparquecanino" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             @lostilosparquecanino
           </a>
@@ -696,7 +730,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
       <h4>Ubicación</h4>
       <ul class="ft-links">
         <li>
-          <a href="https://maps.app.goo.gl/K8EQHsNSE8snQjoA7" target="_blank" rel="noopener">
+          <a href="https://maps.app.goo.gl/K8EQHsNSE8snQjoA7" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             El Colorado, Canelones, Uruguay
           </a>
@@ -722,12 +756,12 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
   </div>
   <div class="ft-bottom">
     <span>© 2026 Los Tilos Parque Canino · El Colorado, Canelones</span>
-    <a href="https://wa.me/59899571818" target="_blank" rel="noopener">Consultar por WhatsApp →</a>
+    <a href="https://wa.me/59899571818" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp →</a>
   </div>
 </footer>
 
-<a href="https://wa.me/59899571818" target="_blank" rel="noopener" class="wa-float" aria-label="Contactar por WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<a href="https://wa.me/59899571818" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#ico-wa"/></svg>
 </a>
 
 <button class="go-top" id="goTop" aria-label="Volver arriba">
@@ -763,12 +797,16 @@ goTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'})
 const hbg = document.getElementById('hbg');
 const navLinks = document.getElementById('navLinks');
 hbg.addEventListener('click', () => {
-  hbg.classList.toggle('on');
+  const open = hbg.classList.toggle('on');
   navLinks.classList.toggle('op');
+  hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
+  hbg.setAttribute('aria-label', open ? 'Cerrar menú' : 'Menú');
 });
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   hbg.classList.remove('on');
   navLinks.classList.remove('op');
+  hbg.setAttribute('aria-expanded', 'false');
+  hbg.setAttribute('aria-label', 'Menú');
 }));
 
 // ── FADE-IN OBSERVER ───────────────────────────────────────
@@ -825,11 +863,20 @@ track.addEventListener('touchend',   e => {
 window.addEventListener('resize', init);
 init();
 
+track.setAttribute('tabindex', '0');
+track.setAttribute('aria-label', 'Galería de fotos — usá las flechas del teclado para navegar');
+track.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft')  { e.preventDefault(); go(cur - 1); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); }
+});
+
 // ── LIGHTBOX ───────────────────────────────────────────────
 const lb     = document.getElementById('lb');
 const lbWrap = document.getElementById('lbWrap');
+let lbOpener = null;
 
 function openLb(slide) {
+  lbOpener = document.activeElement;
   const img = slide.querySelector('img');
   lbWrap.innerHTML = '';
   const closeBtn = document.createElement('button');
@@ -849,11 +896,20 @@ function openLb(slide) {
   }
   lb.classList.add('on');
   document.body.style.overflow = 'hidden';
+  closeBtn.focus();
 }
-function closeLb() { lb.classList.remove('on'); document.body.style.overflow = ''; }
+function closeLb() {
+  lb.classList.remove('on');
+  document.body.style.overflow = '';
+  if (lbOpener) lbOpener.focus();
+}
 document.querySelectorAll('.c-inner').forEach(s => s.addEventListener('click', () => openLb(s)));
 lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('on')) return;
+  if (e.key === 'Escape') { closeLb(); return; }
+  if (e.key === 'Tab') { e.preventDefault(); lbWrap.querySelector('.lb-close').focus(); }
+});
 
 // ── FORMULARIO → WHATSAPP ──────────────────────────────────
 document.getElementById('cfZona').addEventListener('change', function() {
@@ -865,22 +921,42 @@ document.getElementById('cfZona').addEventListener('change', function() {
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const nombre      = document.getElementById('cfNombre').value.trim()    || '(sin nombre)';
-  const zonaSelect  = document.getElementById('cfZona').value;
-  const zonaOtra    = document.getElementById('cfZonaOtra').value.trim();
-  const zona        = zonaSelect === 'Otra zona' ? (zonaOtra || '(sin especificar)') : (zonaSelect || '(sin especificar)');
-  const raza        = document.getElementById('cfRaza').value.trim()     || '(sin especificar)';
-  const cantidad    = document.getElementById('cfCantidad').value        || '1';
-  const sociable    = document.getElementById('cfSociable').value        || '(sin especificar)';
-  const servicio    = document.getElementById('cfServicio').value        || '(sin especificar)';
+  this.querySelectorAll('.err').forEach(el => { el.classList.remove('err'); el.removeAttribute('aria-invalid'); });
+
+  const nombreEl   = document.getElementById('cfNombre');
+  const servicioEl = document.getElementById('cfServicio');
+  const cantidadEl = document.getElementById('cfCantidad');
+  const zonaEl     = document.getElementById('cfZona');
+  const zonaOtraEl = document.getElementById('cfZonaOtra');
+  let firstErr = null;
+
+  const flag = el => { el.classList.add('err'); el.setAttribute('aria-invalid','true'); if (!firstErr) firstErr = el; };
+
+  if (!nombreEl.value.trim())                                    flag(nombreEl);
+  if (!servicioEl.value)                                         flag(servicioEl);
+  const cant = parseInt(cantidadEl.value, 10);
+  if (!cant || cant < 1)                                         flag(cantidadEl);
+  if (zonaEl.value === 'Otra zona' && !zonaOtraEl.value.trim()) flag(zonaOtraEl);
+
+  if (firstErr) { firstErr.focus(); return; }
+
+  const nombre   = nombreEl.value.trim();
+  const zonaOtra = zonaOtraEl.value.trim();
+  const zona     = zonaEl.value === 'Otra zona' ? zonaOtra : (zonaEl.value || '(sin especificar)');
+  const raza     = document.getElementById('cfRaza').value.trim() || '(sin especificar)';
+  const sociable = document.getElementById('cfSociable').value    || '(sin especificar)';
+  const servicio = servicioEl.value;
+
   const msg = 'Hola! Te escribo desde la web. Mis datos:\n'
     + '- Nombre: '                       + nombre   + '\n'
     + '- Zona: '                         + zona     + '\n'
     + '- Raza/tipo de perro: '           + raza     + '\n'
-    + '- Cantidad de perros: '           + cantidad + '\n'
+    + '- Cantidad de perros: '           + cant     + '\n'
     + '- Sociable con perros/humanos: '  + sociable + '\n'
     + '- Servicio de interés: '          + servicio;
   window.open('https://wa.me/59899571818?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  this.reset();
+  zonaOtraEl.style.display = 'none';
 });
 
 // ── FAQ ACCORDION ──────────────────────────────────────────
@@ -889,11 +965,15 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     const open = btn.classList.contains('on');
     document.querySelectorAll('.faq-q').forEach(q => {
       q.classList.remove('on'); q.setAttribute('aria-expanded','false');
-      q.nextElementSibling.classList.remove('op');
+      const p = q.nextElementSibling;
+      p.classList.remove('op');
+      p.style.maxHeight = '0';
     });
     if (!open) {
       btn.classList.add('on'); btn.setAttribute('aria-expanded','true');
-      btn.nextElementSibling.classList.add('op');
+      const p = btn.nextElementSibling;
+      p.classList.add('op');
+      p.style.maxHeight = p.scrollHeight + 'px';
     }
   });
 });
