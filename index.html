@@ -71,26 +71,26 @@ section{padding:5rem 1.5rem}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
 /* ===== NAVBAR ===== */
-.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:900px;z-index:1000;background:rgba(8,18,5,.52);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:0 1.4rem;height:60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:.5rem;transition:background .3s ease,box-shadow .3s ease}
-.nav.sc{background:rgba(8,18,5,.78);box-shadow:0 8px 32px rgba(0,0,0,.35)}
-.nav-logo{font-family:var(--fs);font-size:1.15rem;color:#fff;text-decoration:none;white-space:nowrap;flex-shrink:0}
-.nav-logo small{display:block;font-size:.65rem;color:rgba(255,255,255,.52);font-family:var(--fss);letter-spacing:1.5px;text-transform:uppercase}
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:900px;z-index:1000;background:rgba(255,255,255,.45);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:0 1.4rem;height:60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:.5rem;transition:background .3s ease,box-shadow .3s ease}
+.nav.sc{background:rgba(255,255,255,.72);box-shadow:0 8px 32px rgba(0,0,0,.1)}
+.nav-logo{font-family:var(--fs);font-size:1.15rem;color:#1a1a1a;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.nav-logo small{display:block;font-size:.65rem;color:rgba(0,0,0,.45);font-family:var(--fss);letter-spacing:1.5px;text-transform:uppercase}
 .nav-links{display:flex;gap:1.1rem;list-style:none;align-items:center;flex-wrap:nowrap}
-.nav-links a{text-decoration:none;color:rgba(255,255,255,.78);font-size:.78rem;letter-spacing:0;transition:color .2s;position:relative;white-space:nowrap}
-.nav-links a:hover{color:#fff}
-.nav-links a.active:not(.btn-wa-nav){color:#fff}
+.nav-links a{text-decoration:none;color:rgba(0,0,0,.68);font-size:.78rem;letter-spacing:0;transition:color .2s;position:relative;white-space:nowrap}
+.nav-links a:hover{color:#1a1a1a}
+.nav-links a.active:not(.btn-wa-nav){color:#1a1a1a}
 .nav-links a:not(.btn-wa-nav)::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:2px;background:var(--vm);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
 .nav-links a.active:not(.btn-wa-nav)::after{transform:scaleX(1)}
 @media(max-width:768px){.nav-links a:not(.btn-wa-nav)::after{bottom:-2px}}
 .btn-wa-nav{background:var(--vd)!important;color:var(--bl)!important;padding:.45rem 1.1rem;border-radius:50px;font-size:.78rem!important;transition:var(--tr)!important;white-space:nowrap}
 .btn-wa-nav:hover{background:var(--vm)!important}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hbg span{display:block;width:24px;height:2px;background:rgba(255,255,255,.85);transition:var(--tr);transform-origin:center}
+.hbg span{display:block;width:24px;height:2px;background:rgba(0,0,0,.72);transition:var(--tr);transform-origin:center}
 .hbg.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hbg.on span:nth-child(2){opacity:0}
 .hbg.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:768px){
-  .nav-links{display:none;position:fixed;top:82px;left:16px;right:16px;background:rgba(6,14,4,.9);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);flex-direction:column;padding:1.2rem 1.4rem;gap:.9rem;border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+  .nav-links{display:none;position:fixed;top:82px;left:16px;right:16px;background:rgba(255,255,255,.88);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);flex-direction:column;padding:1.2rem 1.4rem;gap:.9rem;border:1px solid rgba(0,0,0,.08);border-radius:14px;box-shadow:0 4px 24px rgba(0,0,0,.1)}
   .nav-links.op{display:flex}
   .nav-links a{font-size:.95rem}
   .hbg{display:flex}
@@ -257,8 +257,8 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 }
 
 /* ===== THEME TOGGLE BUTTON ===== */
-.theme-btn{background:none;border:1.5px solid rgba(255,255,255,.22);color:rgba(255,255,255,.8);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s,color .2s;flex-shrink:0}
-.theme-btn:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4);color:#fff}
+.theme-btn{background:none;border:1.5px solid rgba(0,0,0,.18);color:rgba(0,0,0,.72);width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s,color .2s;flex-shrink:0}
+.theme-btn:hover{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.3);color:#1a1a1a}
 .theme-btn .ico-sun{display:none}
 
 /* ===== DARK MODE ===== */
@@ -268,8 +268,15 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
   --sh:rgba(0,0,0,.5);
 }
 [data-theme="dark"] body{background:linear-gradient(rgba(96,110,75,.18),rgba(96,110,75,.18)),url('./texture-background.jpg') !important;background-size:cover !important;background-attachment:fixed !important;background-position:center center !important;background-repeat:no-repeat !important}
-[data-theme="dark"] .nav{background:rgba(8,18,5,.42)}
-[data-theme="dark"] .nav.sc{background:rgba(8,18,5,.70);box-shadow:0 8px 32px rgba(0,0,0,.5)}
+[data-theme="dark"] .nav{background:rgba(20,20,20,.45);border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .nav.sc{background:rgba(20,20,20,.72);box-shadow:0 8px 32px rgba(0,0,0,.5)}
+[data-theme="dark"] .nav-logo{color:#fff}
+[data-theme="dark"] .nav-logo small{color:rgba(255,255,255,.52)}
+[data-theme="dark"] .nav-links a{color:rgba(255,255,255,.78)}
+[data-theme="dark"] .nav-links a:hover{color:#fff}
+[data-theme="dark"] .nav-links a.active:not(.btn-wa-nav){color:#fff}
+[data-theme="dark"] .hbg span{background:rgba(255,255,255,.85)}
+[data-theme="dark"] .nav-links{background:rgba(10,10,10,.9);border-color:rgba(255,255,255,.08)}
 [data-theme="dark"] .hero{background:linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.62)),url('parque-hero.jpg') center/cover no-repeat}
 [data-theme="dark"] .hero::after{background:rgba(37,37,37,.75)}
 [data-theme="dark"] h2{color:var(--ne)}
