@@ -124,7 +124,7 @@ section{padding:5rem 1.5rem}
 #actividades{position:relative;background-image:url('fondo.png');background-size:cover;background-position:center;background-attachment:fixed;background-repeat:no-repeat}
 #actividades::before{content:'';position:absolute;inset:0;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:rgba(255,255,255,.08);z-index:0;pointer-events:none}
 #actividades>*{position:relative;z-index:1}
-#actividades .section-tag{color:rgba(234,243,222,.85)}
+#actividades .section-tag{color:#1a1a1a}
 #actividades h2{color:#1a1a1a}
 #actividades .section-sub{color:#444444}
 @media(max-width:768px){#actividades{background-attachment:scroll}}
@@ -282,7 +282,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 [data-theme="dark"] .nav-links a:hover{color:#fff}
 [data-theme="dark"] .nav-links a.active:not(.btn-wa-nav){color:#fff}
 [data-theme="dark"] .hbg span{background:rgba(255,255,255,.85)}
-[data-theme="dark"] .nav-links{background:rgba(10,10,10,.9);border-color:rgba(255,255,255,.08)}
+@media(max-width:768px){[data-theme="dark"] .nav-links{background:rgba(10,10,10,.9);border-color:rgba(255,255,255,.08)}}
 [data-theme="dark"] .hero{background:linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.62)),url('parque-hero.jpg') center/cover no-repeat}
 [data-theme="dark"] .hero::after{background:rgba(37,37,37,.75)}
 [data-theme="dark"] h2{color:var(--ne)}
@@ -298,6 +298,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 [data-theme="dark"] footer{background:#141414;color:rgba(255,255,255,.55)}
 [data-theme="dark"] #actividades{background-image:url('fondo.png');background-size:cover;background-position:center;background-attachment:fixed;background-repeat:no-repeat}
 [data-theme="dark"] #actividades::before{background:rgba(0,0,0,.20)}
+[data-theme="dark"] #actividades .section-tag{color:rgba(234,243,222,.85)}
 [data-theme="dark"] #actividades h2{color:#fff}
 [data-theme="dark"] #actividades .section-sub{color:rgba(255,255,255,.65)}
 @media(max-width:768px){[data-theme="dark"] #actividades{background-attachment:scroll}}
