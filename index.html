@@ -135,20 +135,20 @@ section{padding:5rem 1.5rem}
 #actividades .section-sub{color:#444444}
 @media(max-width:768px){#actividades{background-attachment:scroll}}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:1.5rem}
-.card{background:rgba(255,255,255,.12);border-radius:24px;padding:2rem;border:1px solid rgba(255,255,255,.30);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);box-shadow:0 8px 32px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.40);transition:transform .2s ease,box-shadow .2s ease;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.55),rgba(255,255,255,.10))}
-.card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.50);border-color:rgba(255,255,255,.50)}
-.card-ico{width:50px;height:50px;background:rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.10);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;transition:background .2s ease,transform .2s ease}
-.card-ico svg{width:24px;height:24px;color:#1a1a1a}
-.card:hover .card-ico{background:rgba(0,0,0,.10);transform:scale(1.12)}
-.card:hover .card-ico svg{color:#000}
-.card h3{font-size:1.2rem;color:#1a1a1a;margin-bottom:.4rem}
-.card-desc{font-size:.86rem;color:#2d2d2d}
-.card-price{font-size:1.4rem;font-weight:700;color:#1a1a1a;margin:1rem 0 .7rem}
+.card{background:rgba(255,255,255,.22);border-radius:24px;padding:2rem;border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);box-shadow:0 8px 32px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.70);transition:transform .2s ease,box-shadow .2s ease;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.80),rgba(255,255,255,.15))}
+.card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.80);border-color:rgba(255,255,255,.72)}
+.card-ico{width:50px;height:50px;background:rgba(96,110,75,.15);border:1px solid rgba(96,110,75,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;transition:background .2s ease,transform .2s ease}
+.card-ico svg{width:24px;height:24px;color:#3B6D11}
+.card:hover .card-ico{background:rgba(96,110,75,.25);transform:scale(1.12)}
+.card:hover .card-ico svg{color:#3B6D11}
+.card h3{font-size:1.2rem;color:#1a2a0a;margin-bottom:.4rem}
+.card-desc{font-size:.86rem;color:rgba(30,45,15,.72)}
+.card-price{font-size:1.4rem;font-weight:700;color:#1a2a0a;margin:1rem 0 .7rem}
 .card-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
-.card-list li{font-size:.85rem;color:#333333;display:flex;align-items:flex-start;gap:.5rem}
-.card-list li::before{content:'—';color:#555555;flex-shrink:0}
-.card-note{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(0,0,0,.10);font-size:.78rem;color:#555555;font-style:italic}
+.card-list li{font-size:.85rem;color:rgba(30,45,15,.68);display:flex;align-items:flex-start;gap:.5rem}
+.card-list li::before{content:'—';color:rgba(60,90,30,.45);flex-shrink:0}
+.card-note{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(96,110,75,.15);font-size:.78rem;color:rgba(30,45,15,.48);font-style:italic}
 
 /* ===== GALERÍA ===== */
 #galeria{background:var(--cr)}
@@ -261,9 +261,10 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 .wa-float svg{width:30px;height:30px}
 
 /* ===== SCROLL TOP ===== */
-.go-top{position:fixed;bottom:8rem;right:1.5rem;width:42px;height:42px;background:var(--vd);color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(59,109,17,.35);opacity:0;transform:translateY(10px);transition:var(--tr);z-index:100}
+.go-top{position:fixed;bottom:8rem;right:1.5rem;width:42px;height:42px;background:rgba(96,110,75,.28);backdrop-filter:blur(14px) saturate(1.6);-webkit-backdrop-filter:blur(14px) saturate(1.6);color:#ffffff;border:1px solid rgba(96,110,75,.35);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,.12);opacity:0;transform:translateY(10px);transition:var(--tr);z-index:100;overflow:hidden}
+.go-top::before{content:'';position:absolute;inset:0;border-radius:50%;background:linear-gradient(to bottom,rgba(255,255,255,.20) 0%,transparent 55%);pointer-events:none}
 .go-top.v{opacity:1;transform:none}
-.go-top:hover{background:var(--vm)}
+.go-top:hover{background:rgba(96,110,75,.42);transform:translateY(-2px)}
 .go-top svg{width:19px;height:19px}
 
 @media(prefers-reduced-motion:reduce){
@@ -316,18 +317,18 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 [data-theme="dark"] #actividades h2{color:#fff}
 [data-theme="dark"] #actividades .section-sub{color:rgba(255,255,255,.65)}
 @media(max-width:768px){[data-theme="dark"] #actividades{background-attachment:scroll}}
-[data-theme="dark"] .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:24px;backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);box-shadow:0 8px 32px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.12);transition:transform .2s ease,box-shadow .2s ease}
-[data-theme="dark"] .card:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.28);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.40),inset 0 1px 0 rgba(255,255,255,.20)}
-[data-theme="dark"] .card::before{background:linear-gradient(90deg,rgba(255,255,255,.25),rgba(255,255,255,.05))}
-[data-theme="dark"] .card h3{color:#fff}
-[data-theme="dark"] .card-desc{color:rgba(255,255,255,.65)}
-[data-theme="dark"] .card-price{color:#fff}
-[data-theme="dark"] .card-list li{color:rgba(255,255,255,.65)}
-[data-theme="dark"] .card-list li::before{color:rgba(255,255,255,.35)}
-[data-theme="dark"] .card-note{color:rgba(255,255,255,.40);border-top-color:rgba(255,255,255,.08)}
-[data-theme="dark"] .card-ico{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);transition:background .2s ease,transform .2s ease}
-[data-theme="dark"] .card-ico svg{color:rgba(255,255,255,.80)}
-[data-theme="dark"] .card:hover .card-ico{background:rgba(255,255,255,.16);transform:scale(1.12)}
+[data-theme="dark"] .card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:24px;backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);box-shadow:0 8px 32px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12);transition:transform .2s ease,box-shadow .2s ease}
+[data-theme="dark"] .card:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.20)}
+[data-theme="dark"] .card::before{background:linear-gradient(90deg,rgba(255,255,255,.28),rgba(255,255,255,.04))}
+[data-theme="dark"] .card h3{color:#ffffff}
+[data-theme="dark"] .card-desc{color:rgba(255,255,255,.55)}
+[data-theme="dark"] .card-price{color:#ffffff}
+[data-theme="dark"] .card-list li{color:rgba(255,255,255,.50)}
+[data-theme="dark"] .card-list li::before{color:rgba(255,255,255,.25)}
+[data-theme="dark"] .card-note{color:rgba(255,255,255,.30);border-top-color:rgba(255,255,255,.08)}
+[data-theme="dark"] .card-ico{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);transition:background .2s ease,transform .2s ease}
+[data-theme="dark"] .card-ico svg{color:rgba(255,255,255,.85)}
+[data-theme="dark"] .card:hover .card-ico{background:rgba(255,255,255,.18);transform:scale(1.12)}
 [data-theme="dark"] .card:hover .card-ico svg{color:#fff}
 [data-theme="dark"] .chip{border-color:rgba(255,255,255,.08)}
 [data-theme="dark"] .chip:hover{color:#111}
@@ -335,7 +336,8 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 [data-theme="dark"] .c-btn svg{color:var(--vm)}
 [data-theme="dark"] .c-dot{background:#3a3a3a}
 [data-theme="dark"] .cf-field input,[data-theme="dark"] .cf-field select{background:#2e2e2e;border-color:rgba(255,255,255,.1);color:var(--ne)}
-[data-theme="dark"] .go-top{background:var(--vm)}
+[data-theme="dark"] .go-top{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18);color:#ffffff;box-shadow:0 2px 12px rgba(0,0,0,.30)}
+[data-theme="dark"] .go-top:hover{background:rgba(255,255,255,.18)}
 [data-theme="dark"] .theme-btn{background-image:linear-gradient(180deg,rgba(255,255,255,.10) 0%,transparent 52%);background-color:rgba(255,255,255,.10);border-color:rgba(255,255,255,.15);box-shadow:0 2px 12px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.15)}
 [data-theme="dark"] .theme-btn:hover{background-color:rgba(255,255,255,.15)}
 [data-theme="dark"] .tgl-ind{transform:translateY(-50%) translateX(30px);background-color:rgba(255,255,255,.90);box-shadow:0 2px 8px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.95)}
@@ -469,7 +471,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
         </div>
         <h3>Hotelería y pensionado</h3>
         <p class="card-desc">Para estadías más largas, con toda la atención y comodidad que tu perro merece.</p>
-        <div class="card-price">Precio a consultar</div>
+        <div class="card-price">$600 / día</div>
         <ul class="card-list">
           <li>Traslados todos los días excepto martes y miércoles</li>
           <li>Caniles individuales con aire acondicionado</li>
