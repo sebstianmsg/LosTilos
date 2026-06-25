@@ -110,7 +110,7 @@ section{padding:5rem 1.5rem}
 .btn-cta:hover{background:rgba(96,110,75,.42);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18)}
 .btn-cta::before{content:'';position:absolute;inset:0;border-radius:50px;background:linear-gradient(to bottom,rgba(255,255,255,.18) 0%,transparent 55%);pointer-events:none}
 .btn-cta svg{width:20px;height:20px;flex-shrink:0}
-.hero-scroll{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.70);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;animation:bob 2.2s ease infinite;z-index:1}
+.hero-scroll{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(0,0,0,.45);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;animation:bob 2.2s ease infinite;z-index:1}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);opacity:.55}50%{transform:translateX(-50%) translateY(6px);opacity:1}}
 @media(max-width:768px){.hero{background-attachment:scroll}}
 
@@ -188,6 +188,7 @@ section{padding:5rem 1.5rem}
 .feat{display:flex;align-items:flex-start;gap:1rem;transition:transform .25s ease}
 .feat:hover{transform:translateX(5px)}
 .feat-ico{width:46px;height:46px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+@media(min-width:769px){.feats{grid-template-columns:repeat(4,minmax(0,220px));justify-content:center}.feat:nth-child(5){grid-column:2}.feat:nth-child(6){grid-column:3}.feat{flex-direction:column;align-items:center;text-align:center}.feat:hover{transform:translateY(-3px)}.feat-ico{margin:0 auto .8rem;flex-shrink:unset}}
 .feat-ico svg{width:22px;height:22px;color:var(--vc)}
 .feat h4{font-size:.92rem;font-weight:600;margin-bottom:.25rem;color:var(--bl)}
 .feat p{font-size:.82rem;color:rgba(255,255,255,.82);line-height:1.55}
@@ -297,6 +298,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 @media(max-width:768px){[data-theme="dark"] .nav-links{background:rgba(20,20,20,.75);border-color:rgba(255,255,255,.08)}}
 [data-theme="dark"] .hero{background:linear-gradient(to bottom,rgba(0,0,0,.30) 0%,rgba(0,0,0,.10) 35%,rgba(0,0,0,.10) 65%,rgba(0,0,0,.70) 100%),url('parque-hero.jpg') center/cover no-repeat}
 [data-theme="dark"] .hero::after{background:linear-gradient(to top,rgba(30,30,30,1) 30%,transparent 100%)}
+[data-theme="dark"] .hero-scroll{color:rgba(255,255,255,.70)}
 [data-theme="dark"] h2{color:var(--ne)}
 [data-theme="dark"] .btn-wa-nav{color:#111}
 [data-theme="dark"] .btn-cta,[data-theme="dark"] .cf-submit{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18);color:#ffffff;box-shadow:0 2px 12px rgba(0,0,0,.18)}
