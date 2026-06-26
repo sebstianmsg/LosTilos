@@ -76,7 +76,7 @@ section{padding:5rem 1.5rem}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
 
 /* ===== NAVBAR ===== */
-.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:900px;z-index:1000;background:rgba(255,255,255,.38);backdrop-filter:blur(20px) saturate(200%);-webkit-backdrop-filter:blur(20px) saturate(200%);border:1px solid rgba(255,255,255,.55);border-radius:16px;padding:0 1.4rem;height:60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:.5rem;box-shadow:0 4px 24px rgba(0,0,0,.07),inset 0 1px 0 rgba(255,255,255,.75);transition:background .3s ease,box-shadow .3s ease}
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:1100px;z-index:1000;background:rgba(255,255,255,.38);backdrop-filter:blur(20px) saturate(200%);-webkit-backdrop-filter:blur(20px) saturate(200%);border:1px solid rgba(255,255,255,.55);border-radius:16px;padding:0 1.4rem;height:60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:.5rem;box-shadow:0 4px 24px rgba(0,0,0,.07),inset 0 1px 0 rgba(255,255,255,.75);transition:background .3s ease,box-shadow .3s ease}
 .nav.sc{background:rgba(255,255,255,.60);box-shadow:0 8px 32px rgba(0,0,0,.10),inset 0 1px 0 rgba(255,255,255,.80)}
 .nav-logo{font-family:var(--fs);font-size:1.15rem;color:#1a1a1a;text-decoration:none;white-space:nowrap;flex-shrink:0}
 .nav-logo small{display:block;font-size:.65rem;color:rgba(0,0,0,.45);font-family:var(--fss);letter-spacing:1.5px;text-transform:uppercase}
@@ -111,7 +111,7 @@ section{padding:5rem 1.5rem}
 .btn-cta:hover{background:rgba(96,110,75,.42);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18)}
 .btn-cta::before{content:'';position:absolute;inset:0;border-radius:50px;background:linear-gradient(to bottom,rgba(255,255,255,.18) 0%,transparent 55%);pointer-events:none}
 .btn-cta svg{width:20px;height:20px;flex-shrink:0}
-.hero-scroll{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(255,255,255,.70);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;animation:bob 2.2s ease infinite;z-index:1}
+.hero-scroll{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:rgba(0,0,0,.45);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;animation:bob 2.2s ease infinite;z-index:1}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);opacity:.55}50%{transform:translateX(-50%) translateY(6px);opacity:1}}
 @media(max-width:768px){.hero{background-attachment:scroll}}
 
@@ -189,6 +189,7 @@ section{padding:5rem 1.5rem}
 .feat{display:flex;align-items:flex-start;gap:1rem;transition:transform .25s ease}
 .feat:hover{transform:translateX(5px)}
 .feat-ico{width:46px;height:46px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+@media(min-width:769px){.feats{grid-template-columns:repeat(4,minmax(0,220px));justify-content:center}.feat:nth-child(5){grid-column:2}.feat:nth-child(6){grid-column:3}.feat{flex-direction:column;align-items:center;text-align:center}.feat:hover{transform:translateY(-3px)}.feat-ico{margin:0 auto .8rem;flex-shrink:unset}}
 .feat-ico svg{width:22px;height:22px;color:var(--vc)}
 .feat h4{font-size:.92rem;font-weight:600;margin-bottom:.25rem;color:var(--bl)}
 .feat p{font-size:.82rem;color:rgba(255,255,255,.82);line-height:1.55}
@@ -201,6 +202,9 @@ section{padding:5rem 1.5rem}
 .zonas-nota{text-align:center;margin-top:1.8rem;font-size:.83rem;color:var(--gt)}
 .zonas-nota a{color:var(--vd);text-decoration:none;font-weight:500}
 .zonas-nota a:hover{text-decoration:underline}
+.zonas-mapa{margin:2rem auto 0;max-width:900px;border-radius:16px;overflow:hidden;border:.5px solid rgba(0,0,0,.10);box-shadow:0 4px 24px rgba(0,0,0,.10);line-height:0}
+.zonas-mapa iframe{width:100%;height:420px;border:0;display:block}
+@media(max-width:768px){.zonas-mapa iframe{height:280px}}
 
 /* ===== FAQ ===== */
 #faq{background:var(--cr)}
@@ -298,6 +302,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 @media(max-width:768px){[data-theme="dark"] .nav-links{background:rgba(20,20,20,.75);border-color:rgba(255,255,255,.08)}}
 [data-theme="dark"] .hero{background:linear-gradient(to bottom,rgba(0,0,0,.30) 0%,rgba(0,0,0,.10) 35%,rgba(0,0,0,.10) 65%,rgba(0,0,0,.70) 100%),url('parque-hero.jpg') center/cover no-repeat}
 [data-theme="dark"] .hero::after{background:linear-gradient(to top,rgba(30,30,30,1) 30%,transparent 100%)}
+[data-theme="dark"] .hero-scroll{color:rgba(255,255,255,.70)}
 [data-theme="dark"] h2{color:var(--ne)}
 [data-theme="dark"] .btn-wa-nav{color:#111}
 [data-theme="dark"] .btn-cta,[data-theme="dark"] .cf-submit{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18);color:#ffffff;box-shadow:0 2px 12px rgba(0,0,0,.18)}
@@ -333,6 +338,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 [data-theme="dark"] .card:hover .card-ico svg{color:#fff}
 [data-theme="dark"] .chip{border-color:rgba(255,255,255,.08)}
 [data-theme="dark"] .chip:hover{color:#111}
+[data-theme="dark"] .zonas-mapa{border-color:rgba(255,255,255,.08);box-shadow:0 4px 24px rgba(0,0,0,.35)}
 [data-theme="dark"] .c-btn{background:rgba(26,26,26,.88)}
 [data-theme="dark"] .c-btn svg{color:var(--vm)}
 [data-theme="dark"] .c-dot{background:#3a3a3a}
@@ -373,6 +379,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
     <li><a href="#parque">El Parque</a></li>
     <li><a href="#zonas">Zonas</a></li>
     <li><a href="#faq">Preguntas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
     <li>
       <button class="theme-btn" id="themeToggle" aria-label="Cambiar a modo oscuro">
         <span class="tgl-ind" aria-hidden="true"></span>
@@ -668,6 +675,14 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
       <span class="chip">Ciudad de la Costa</span>
       <span class="chip">Zona Aeropuerto</span>
       <span class="chip">Carrasco</span>
+      <span class="chip">El Pinar</span>
+      <span class="chip">Parque Batlle</span>
+      <span class="chip">Atahualpa</span>
+      <span class="chip">Brazo Oriental</span>
+      <span class="chip">Las Piedras</span>
+    </div>
+    <div class="zonas-mapa fi" id="zonas-mapa">
+      <iframe src="https://www.google.com/maps/d/u/6/embed?mid=1pKNfV-dKpqzKX0p98zGnzYrtehTy3So&ehbc=2E312F&noprof=1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <p class="zonas-nota fi">¿Tu zona no está? <a href="https://wa.me/59899571818" target="_blank" rel="noopener noreferrer">Consultanos por WhatsApp</a> — podemos coordinar.</p>
   </div>
