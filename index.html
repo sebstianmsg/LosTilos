@@ -201,6 +201,9 @@ section{padding:5rem 1.5rem}
 .zonas-nota{text-align:center;margin-top:1.8rem;font-size:.83rem;color:var(--gt)}
 .zonas-nota a{color:var(--vd);text-decoration:none;font-weight:500}
 .zonas-nota a:hover{text-decoration:underline}
+.zonas-mapa{margin:2rem auto 0;max-width:900px;border-radius:16px;overflow:hidden;border:.5px solid rgba(0,0,0,.10);box-shadow:0 4px 24px rgba(0,0,0,.10);line-height:0}
+.zonas-mapa iframe{width:100%;height:420px;border:0;display:block}
+@media(max-width:768px){.zonas-mapa iframe{height:280px}}
 
 /* ===== FAQ ===== */
 #faq{background:var(--cr)}
@@ -334,6 +337,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
 [data-theme="dark"] .card:hover .card-ico svg{color:#fff}
 [data-theme="dark"] .chip{border-color:rgba(255,255,255,.08)}
 [data-theme="dark"] .chip:hover{color:#111}
+[data-theme="dark"] .zonas-mapa{border-color:rgba(255,255,255,.08);box-shadow:0 4px 24px rgba(0,0,0,.35)}
 [data-theme="dark"] .c-btn{background:rgba(26,26,26,.88)}
 [data-theme="dark"] .c-btn svg{color:var(--vm)}
 [data-theme="dark"] .c-dot{background:#3a3a3a}
@@ -374,6 +378,7 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
     <li><a href="#parque">El Parque</a></li>
     <li><a href="#zonas">Zonas</a></li>
     <li><a href="#faq">Preguntas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
     <li>
       <button class="theme-btn" id="themeToggle" aria-label="Cambiar a modo oscuro">
         <span class="tgl-ind" aria-hidden="true"></span>
@@ -669,6 +674,14 @@ footer{background:var(--ne);color:rgba(255,255,255,.65);padding:4rem 1.5rem 2rem
       <span class="chip">Ciudad de la Costa</span>
       <span class="chip">Zona Aeropuerto</span>
       <span class="chip">Carrasco</span>
+      <span class="chip">El Pinar</span>
+      <span class="chip">Parque Batlle</span>
+      <span class="chip">Atahualpa</span>
+      <span class="chip">Brazo Oriental</span>
+      <span class="chip">Las Piedras</span>
+    </div>
+    <div class="zonas-mapa fi">
+      <iframe src="https://www.google.com/maps/d/u/6/embed?mid=1pKNfV-dKpqzKX0p98zGnzYrtehTy3So&ehbc=2E312F&noprof=1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <p class="zonas-nota fi">¿Tu zona no está? <a href="https://wa.me/59899571818" target="_blank" rel="noopener noreferrer">Consultanos por WhatsApp</a> — podemos coordinar.</p>
   </div>
